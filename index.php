@@ -34,14 +34,13 @@ $result = 0;
 if (isset($_POST["income"])) {
      $slary=$_POST["income"];
      $slave = 12570;
-     if($salary > 100000){
-            echo "<h1>hehe</h1>";
-         if($salary <= 125140){
-             $newValue = $salary - 100000;
+     if($slary > 100000){
+         if($slary <= 125140){
+             $newValue = $slary - 100000;
              $newValue = $newValue/2;
              $slave = $slave - $newValue;
             }
-            elseif($salary > 125140){
+            elseif($slary > 125140){
                 $slave = 0;
             }    
         }
@@ -81,12 +80,17 @@ if (isset($_POST["income"])) {
             <input type="text" id="myText" name="income" placeholder="EURO">
             <button style="background-color: blue; color: white; border-radius: 5px;" onclick="myFunction()">Calculate</button>
         </form>
-        <h3 id="here"><?php echo $result; ?></h3>
+        <h3 id="here"><?php echo "Your total payable annual tax is = ".$result; ?></h3>
+        <h3>
         <?php
         if (isset($_POST["income"])){
-            echo "<h4>Your Total earnings = </h4>" . $salary;
+            echo "Your Total earnings = ". $slary;
+            if($subtotal > 37700){
+            echo "<br>Your Total earnings after tax deduction = ". ($slary - $result);
+            }
     }
         ?>
+        </h3>
     </div>
 
 </body>
